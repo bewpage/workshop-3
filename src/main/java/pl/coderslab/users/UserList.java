@@ -1,7 +1,6 @@
 package pl.coderslab.users;
 
 import java.io.IOException;
-import java.util.Arrays;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
@@ -16,20 +15,15 @@ public class UserList extends HttpServlet {
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
     // connect to db and get all users
-    User[] users = null;
+    User[] users = {};
     try {
       users = userDao.findAll();
       // set users as attribute
       request.setAttribute("users", users);
-      System.out.println("users: " + Arrays.toString(users));
     } catch (Exception e) {
       e.printStackTrace();
     }
     // forward to list.jsp
     getServletContext().getRequestDispatcher("/users/list.jsp").forward(request, response);
   }
-
-  @Override
-  protected void doPost(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {}
 }
