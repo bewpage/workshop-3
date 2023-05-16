@@ -23,6 +23,9 @@
     <!-- Custom styles for this template-->
     <link href="<c:url value="/theme/css/sb-admin-2.min.css" />" rel="stylesheet">
 
+    <!-- Custom js script for this page -->
+    <script src="<c:url value="/theme/js/main.js" />"></script>
+
 </head>
 
 <body id="page-top">

@@ -3,11 +3,11 @@
 
 <form method="post" >
     <div class="form-group">
-        <label for="username">Address</label>
+        <label for="username">Username</label>
         <input type="text" class="form-control" id="username" placeholder="username" name="username" required>
     </div>
     <div class="form-group">
-        <label for="email">Email address</label>
+        <label for="email">Email</label>
         <input type="email" class="form-control" id="email" aria-describedby="email address" name="email" required>
     </div>
     <div class="form-group">

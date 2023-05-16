@@ -19,9 +19,9 @@
                 <td><c:out value="${user.email}"/></td>
                 <td class="text-left py-1 px-0">
                     <div>
-                        <button type="button" class="btn btn-link">Delete</button>
-                        <button type="button" class="btn btn-link">Edit</button>
-                        <button type="button" class="btn btn-link">Show</button>
+                        <button type="button" class="btn btn-link" id="delete_btn">Delete</button>
+                        <button type="button" class="btn btn-link" id="edit_btn">Edit</button>
+                        <button type="button" class="btn btn-link" id="show_btn">Show</button>
                     </div>
                 </td>
             </tr>
