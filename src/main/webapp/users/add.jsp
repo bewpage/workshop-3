@@ -7,20 +7,21 @@
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
-    <!-- User List Header -->
-    <%@include file="listHeading.jsp"%>
+    <!-- Page Heading -->
+    <%@include file="mainHeading.jsp" %>
 
     <!-- Content Row -->
     <div class="row">
         <!-- Content Column -->
         <div class="col-lg-12 mb-4">
+            <!-- Content Card -->
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Users List</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">Add User</h6>
                 </div>
                 <div class="card-body">
-                    <!-- Users List Table -->
-                    <%@include file="/table.jsp" %>
+                    <!-- New User Form -->
+                    <%@include file="/addUserForm.jsp" %>
                 </div>
             </div>
         </div>
