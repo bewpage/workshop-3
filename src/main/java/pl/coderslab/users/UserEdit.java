@@ -5,7 +5,7 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 import pl.coderslab.entity.User;
-import pl.coderslab.entity.UserDao;
+import pl.coderslab.utils.UserDao;
 
 @WebServlet(name = "UserEdit", value = "/user/edit")
 public class UserEdit extends HttpServlet {

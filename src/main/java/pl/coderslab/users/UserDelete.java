@@ -6,7 +6,7 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
-import pl.coderslab.entity.UserDao;
+import pl.coderslab.utils.UserDao;
 
 @WebServlet(name = "UserDelete", value = "/user/delete")
 public class UserDelete extends HttpServlet {
