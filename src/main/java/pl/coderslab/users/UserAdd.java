@@ -9,7 +9,10 @@ import pl.coderslab.utils.UserDao;
 
 @WebServlet(name = "UserAdd", value = "/user/add")
 public class UserAdd extends HttpServlet {
-  private UserDao userDao = new UserDao();
+  private UserDao userDao;
+  public void init() {
+    userDao = new UserDao();
+  }
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)

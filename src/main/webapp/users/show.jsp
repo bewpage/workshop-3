@@ -21,7 +21,17 @@
                 </div>
                 <div class="card-body">
                     <!-- New User Form -->
-                    <%@include file="showUser.jsp" %>
+                    <c:catch var="exception">
+                        <c:if test="${not empty exception}">
+                            <div class="alert alert-danger">
+                                <p>${exception}</p>
+                            </div>
+                        </c:if>
+                        <c:if test="${exception == null}" >
+                            <%@include file="showUser.jsp" %>
+                        </c:if>
+                    </c:catch>
+
                 </div>
             </div>
         </div>
