@@ -8,7 +8,7 @@
 <div class="container-fluid">
 
     <!-- User List Header -->
-    <%@include file="listHeading.jsp"%>
+    <%@include file="listHeading.jsp" %>
 
     <!-- Content Row -->
     <div class="row">
@@ -20,7 +20,14 @@
                 </div>
                 <div class="card-body">
                     <!-- Users List Table -->
-                    <%@include file="/table.jsp" %>
+                    <c:if test="${not empty users}">
+                        <%@include file="/table.jsp" %>
+                    </c:if>
+                    <c:if test="${empty users}">
+                        <div class="alert alert-danger" role="alert">
+                            <strong>Oops!</strong> No users found.
+                        </div>
+                    </c:if>
                 </div>
             </div>
         </div>
