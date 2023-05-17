@@ -6,7 +6,7 @@ import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
-import pl.coderslab.entity.UserDao;
+import pl.coderslab.utils.UserDao;
 
 @WebServlet(name = "UserDelete", value = "/user/delete")
 public class UserDelete extends HttpServlet {
@@ -37,10 +37,6 @@ public class UserDelete extends HttpServlet {
       return builder.toString();
     }
   }
-
-  @Override
-  protected void doGet(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {}
 
   @Override
   protected void doPost(HttpServletRequest request, HttpServletResponse response)

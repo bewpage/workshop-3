@@ -5,12 +5,17 @@ import javax.servlet.*;
 import javax.servlet.annotation.*;
 import javax.servlet.http.*;
 import pl.coderslab.entity.User;
-import pl.coderslab.entity.UserDao;
+import pl.coderslab.utils.UserDao;
 
 @WebServlet(name = "UserEdit", value = "/user/edit")
 public class UserEdit extends HttpServlet {
-  private UserDao userDao = new UserDao();
+  private UserDao userDao;
   private User user;
+
+  public void init() {
+    userDao = new UserDao();
+    user = new User();
+  }
 
   @Override
   protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -35,7 +40,6 @@ public class UserEdit extends HttpServlet {
       throws ServletException, IOException {
     // get id from edit.jsp
     String userId = request.getParameter("id");
-    System.out.println("post userId: " + userId);
     // submit changes to db
     try {
       // get user from db

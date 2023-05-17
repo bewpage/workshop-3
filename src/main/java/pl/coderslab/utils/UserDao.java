@@ -1,12 +1,12 @@
-package pl.coderslab.entity;
-
-import org.mindrot.jbcrypt.BCrypt;
-import pl.coderslab.utils.DbUtil;
+package pl.coderslab.utils;
 
 import java.sql.*;
 import java.util.Arrays;
+import org.mindrot.jbcrypt.BCrypt;
+import pl.coderslab.entity.User;
+import pl.coderslab.entity.UserNotFoundException;
 
-public class UserDao {
+public class UserDao extends Queries {
   enum Column {
     ID,
     USERNAME,
@@ -19,9 +19,6 @@ public class UserDao {
   }
 
   // ---- CREATE ----
-  private static final String CREATE_USER_QUERY =
-      "INSERT INTO users(email, username, password) VALUES(?, ?, ?)";
-
   public User create(User user) {
     try (Connection conn = DbUtil.getConnection();
         PreparedStatement statement =
@@ -45,8 +42,6 @@ public class UserDao {
   }
 
   // ---- READ ----
-  private static final String FIND_USER_QUERY = "SELECT * FROM users WHERE id = ?";
-
   public User read(long userId) {
     try (Connection conn = DbUtil.getConnection();
         PreparedStatement statement = conn.prepareStatement(FIND_USER_QUERY)) {
@@ -72,9 +67,6 @@ public class UserDao {
   }
 
   // ---- UPDATE ----
-  private static final String UPDATE_USER_QUERY =
-      "UPDATE users SET email = ?, username = ?, password = ? WHERE id = ?";
-
   public void update(User user) {
     try (Connection conn = DbUtil.getConnection();
         PreparedStatement statement = conn.prepareStatement(UPDATE_USER_QUERY)) {
@@ -89,9 +81,6 @@ public class UserDao {
   }
 
   // ---- DELETE ----
-
-  private static final String DELETE_USER_QUERY = "DELETE FROM users WHERE id = ?";
-
   public void delete(long userId) {
     try (Connection conn = DbUtil.getConnection();
         PreparedStatement statement = conn.prepareStatement(DELETE_USER_QUERY)) {
@@ -103,8 +92,6 @@ public class UserDao {
   }
 
   // ---- FIND ALL USERS ----
-  private static final String FIND_ALL_QUERY = "SELECT * FROM users";
-
   public User[] findAll() {
     User[] users = {};
     try (Connection conn = DbUtil.getConnection();
