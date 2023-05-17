@@ -27,7 +27,34 @@ function actionButtons(btnSelector) {
             console.log(id);
             // redirect to edit page
             console.log(btnSelector.match(/#(\w+)_/)[1]);
-            window.location.href = `${urlPrefix}?id=` + id;
+            if (urlPrefix === "delete") {
+                const confirmDeleteBtn = document.querySelector("#confirmDeleteBtn");
+                confirmDeleteBtn.addEventListener("click", async function () {
+                    console.log("confirm delete");
+                    console.log(`${urlPrefix}?id=` + id);
+                    confirmDeleteBtn.setAttribute("data-dismiss", "modal");
+                    await fetch(`${urlPrefix}?id=${id}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({id: id})
+                    }).then(response => {
+                        console.log(response.status);
+                        if (response.status === 200) {
+                            window.location.href = `list`;
+                        } else {
+                            console.log("error");
+                            window.alert("Delete failed");
+                        }
+                    }).catch(error => {
+                        console.log(error);
+                    });
+                })
+
+            } else {
+                window.location.href = `${urlPrefix}?id=` + id;
+            }
         });
     });
 }
